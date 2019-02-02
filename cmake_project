@@ -53,32 +53,19 @@ else
 		fi
 	fi
 
-	PROJECT_FILES=".cmake_project_files"
+	PROJECT_FILES=~/bin/git/cmake_project/project_files
 
-	cp -r ~/bin/$PROJECT_FILES $1
-	cd $1
-
-	echo
-
-	# TODO make function that filters and replaces file
-	# and refactor below
-
-	# give Doxygen the name of this project
-	cat doxygen/Doxyfile | sed "s/CMAKE_PROJECT_NAME/$1/g" > _doxy
-	mv _doxy doxygen/Doxyfile
-
-	# give cmake the name of this project
-	cat CMakeLists.txt | sed "s/CMAKE_PROJECT_NAME/$1/g" > _cmake_lists
-	mv _cmake_lists CMakeLists.txt
-
-	# give make the name of the executable
-	cat Makefile | sed "s/CMAKE_PROJECT_NAME/$1/g" > _Makefile
-	mv _Makefile Makefile
-
-	# give vim the name of the executable
-	cat .vimrc | sed "s/CMAKE_PROJECT_NAME/$1/g" > _vimrc
-	mv _vimrc .vimrc
-	# -------------------------------------
+	cp -r $PROJECT_FILES $1 \
+		&& cd $1 \
+		&& cat doxygen/Doxyfile | sed "s/CMAKE_PROJECT_NAME/$1/g" > _doxy \
+		&& mv _doxy doxygen/Doxyfile \
+		&& cat CMakeLists.txt | sed "s/CMAKE_PROJECT_NAME/$1/g" > _cmake_lists \
+		&& mv _cmake_lists CMakeLists.txt \
+		&& cat Makefile | sed "s/CMAKE_PROJECT_NAME/$1/g" > _Makefile \
+		&& mv _Makefile Makefile \
+		&& cat .vimrc | sed "s/CMAKE_PROJECT_NAME/$1/g" > _vimrc \
+		&& mv _vimrc .vimrc
+		# -------------------------------------
 
 	rm -rf .git
 	make clean
