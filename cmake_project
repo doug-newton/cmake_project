@@ -53,6 +53,9 @@ else
 		fi
 	fi
 
+	# this assumes the use of `scripty` to manage the script
+	# please see https://www.github.com/doug-newton/scripty
+
 	PROJECT_FILES=~/bin/git/cmake_project/project_files
 
 	cp -r $PROJECT_FILES $1 \
