@@ -1,0 +1,5 @@
+PROJECT_NAME           = "CMAKE_PROJECT_NAME"
+INPUT                  = ../src/
+RECURSIVE              = YES
+UML_LOOK               = YES
+DOT_PATH               = /usr/bin/dot

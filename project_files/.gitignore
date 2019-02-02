@@ -1,0 +1,9 @@
+*.o
+doxygen/latex/*
+doxygen/html/*
+./build/*
+program
+bin/*.o
+build/*
+.*.s??
+CMakeFiles/*
